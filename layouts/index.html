@@ -2,7 +2,7 @@
     <div class="container">
         {{range .Data.Pages }}
         {{if eq .Section "recept"}}
-        <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="col-md-3 col-sm-4 col-xs-6">
             <div class="thumbnail">
                 {{ with .Params.bild }}<img src="{{ . }}" class="li-left">{{ end }}
                 <div class="caption">
