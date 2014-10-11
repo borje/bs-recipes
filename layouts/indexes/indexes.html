@@ -1,0 +1,20 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseUrl }}
+
+<div class="container">
+    <div class="col-md-6 col-xs-12">
+        <ul class="list-group">
+            {{ $data := .Data }}
+            {{ $plural := .Data.Plural }}
+            {{ range $key,$value := .Data.Index.ByCount }}
+            <li class="list-group-item">
+            <span class="badge">{{ $value.Count }}</span> 
+            <a href="{{ $baseurl }}/{{ $plural }}/{{ $value.Name | urlize }}" class="navbar-link"> {{ $value.Name }} </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+
+{{ partial "footer.html" . }}
