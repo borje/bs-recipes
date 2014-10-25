@@ -38,10 +38,17 @@
             </div>
             <div class="navbar-collapse collapse" id="topnavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/categories/">Kategorier</a></li>
-                    <!--<li class="active"><a href="/tags/">Taggar</a></li>-->
+                    <li class="dropdown">
+                    <a href="/categories" class="dropdown-toggle" data-toggle="dropdown">Kategorier <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        {{ range $key, $taxonomy := .Site.Taxonomies.categories }}
+                        <li><a href="/categories/{{ $key }}">{{ $key }}</a></li>
+                        {{ end }}
+                    </ul>
+                    </li>
+                    <!--<li class="active"><a href="/categories/">Kategorier</a></li>-->
                 </ul>
-                <!--<form class="navbar-form navbar-right" action="http://recept.granberg.in/search" role="search">-->
+  <!--<form class="navbar-form navbar-right" action="http://recept.granberg.in/search" role="search">-->
                 <form class="navbar-form navbar-right" action="/search" role="search">
                     <div class="form-group">
                         <input type="text" name="q" class="form-control" id="tipue_search_input" autocomplete="on" placeholder="Sök" required>
