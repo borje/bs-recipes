@@ -1,0 +1,7 @@
+.twolines {
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    height: 5em;
+    /*line-height: 3.5em;*/
+}
