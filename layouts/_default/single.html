@@ -4,6 +4,10 @@
     <div class="col-sm-12">
         <h1>{{ .Title }}</h1>
         {{ with .Params.bild }}<img src="/img/{{ . }}" class="col-sm-6 col-xs-8 pull-right">{{ end }}
+
+        {{ with .Params.portioner }} <p><span class="glyphicon glyphicon-cutlery"></span> Portioner: {{ . }} </p> {{ end }}
+
+        {{ with .Params.tid }} <p> <span class="glyphicon glyphicon-time"></span> Tid: {{ . }} </p> {{ end }}
         <section>
             {{ .Content }}
         </section>
