@@ -3,13 +3,14 @@
 <div class="container">
     <div class="col-sm-12">
         <h1>{{ .Title }}</h1>
-        {{ with .Params.bild }}<img src="/img/{{ . }}" class="col-sm-6 col-xs-8 pull-right">{{ end }}
 
-        {{ if isset .Params "categories" }}
-        {{ end }}
         <p>
+            {{ if isset .Params "bild" }}
+                {{ with .Params.bild }}<img src="/img/{{ . }}" class="col-sm-6 col-xs-8 pull-right">{{ end }}
+                <!--har bild-->
+            {{ end }}
             {{ if isset .Params "categories" }}
-            {{ range .Params.categories }}
+            Kategori: {{ range .Params.categories }}
             <a class="post-category post-category-{{ . }}" href="/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
             {{ end }}
         </p>
@@ -23,7 +24,7 @@
         <time>{{ .Date.Format "Monday, January 2, 2006" }}</time>
         <p>
             {{ if isset .Params "mainingredients" }}
-            {{ range .Params.mainingredients }}
+            Huvudingrediens: {{ range .Params.mainingredients }}
             <a class="post-category post-category-{{ . }}" href="/mainingredients/{{ . | urlize }}">{{ . }}</a>{{ end }}
             {{ end }}
         </p>

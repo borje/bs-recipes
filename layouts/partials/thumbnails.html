@@ -3,7 +3,13 @@
         <div class="col-md-3 col-sm-4 col-xs-6">
             <div class="thumbnail">
                 <a href="{{ .Permalink }}" class="navbar-link">
-                    {{ with .Params.bild }}<img src="/img/thumbnails/{{ . }}">{{ end }}
+                    {{ if isset .Params "bild" }}
+                        {{ with .Params.bild }}<img src="/img/thumbnails/{{ . }}" >{{ end }}
+                        <!--har bild-->
+                    {{ else }}
+                        <!--har ingen bild-->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" width="224px">
+                    {{ end }}
                     <div class="caption twolines">
                         <h4>{{ .Title }}</h4>
                     </div>
