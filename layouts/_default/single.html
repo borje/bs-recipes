@@ -5,9 +5,9 @@
         <h1>{{ .Title }}</h1>
 
         <p>
-            {{ if isset .Params "bild" }}
-                {{ with .Params.bild }}<img src="/img/{{ . }}" class="col-sm-6 col-xs-8 pull-right">{{ end }}
-                <!--har bild-->
+            {{ $image :=  .Resources.GetMatch "*.jp*" }}
+            {{ if $image }}
+                <img src="{{ $image }}" class="col-sm-6 col-xs-8 pull-right">
             {{ end }}
             {{ if isset .Params "categories" }}
             Kategori: {{ range .Params.categories }}

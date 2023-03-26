@@ -3,8 +3,9 @@
         <div class="col-md-3 col-sm-4 col-xs-6">
             <div class="thumbnail">
                 <a href="{{ .Permalink }}" class="navbar-link">
-                    {{ if isset .Params "bild" }}
-                        {{ with .Params.bild }}<img src="/img/thumbnails/{{ . }}" >{{ end }}
+                    {{ $image :=  .Resources.GetMatch "*.jp*" }}
+                    {{ if $image }}
+                        <img src="{{ ($image.Fill "300x300 q100 Center").RelPermalink }}" >
                         <!--har bild-->
                     {{ else }}
                         <!--har ingen bild-->
